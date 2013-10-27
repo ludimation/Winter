@@ -1,0 +1,12 @@
+# Unity Generated Directories
+[Ll]ibrary/
+[Bb]uild/
+[Tt]emp/
+[Oo]bj/
+
+# IDE Project Files
+*.csproj
+*.unityproj
+*.sln
+#*.pidb
+
