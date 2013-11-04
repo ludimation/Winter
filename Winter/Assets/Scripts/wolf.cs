@@ -8,18 +8,28 @@ public class wolf : MonoBehaviour {
 	public float velocity;
 	public float temperature;
 	
+	enum CharacterState {
+		Sniffing = 0,
+		Walking = 1,
+		Floating = 2,
+	}
+	
+	private CharacterState charState;
+	
 	//Public member variables
 	public Transform playerTransform;
-	public float maxVelocity;
-	public float maxTemp;
-	public float warmingDistance;
-	public float warmingSpeed;
-	public float maxCoolingDistance;
+	public float maxVelocity = 15f;
+	public float maxTemp = 100f;
+	public float warmingDistance = 20f;
+	public float warmingSpeed = 0.1f;
+	public float maxCoolingDistance = 35f;
+	
 		
 	void Start () {
 		//Fill initial state values
 		distanceFromPlayer = PlayerDistance(playerTransform.position);
 		velocity = 0;
+		charState = CharacterState.Walking;
 	}
 	
 	
@@ -44,7 +54,12 @@ public class wolf : MonoBehaviour {
 		}
 		
 		//Manage Velocity
-		velocity = maxVelocity * temperature / maxTemp;
+		if(charState == CharacterState.Walking) {
+			velocity = maxVelocity * temperature / maxTemp;
+		}
+		else {
+			velocity = 0;	
+		}
 		
 		gameObject.GetComponent<NavMeshAgent>().speed = velocity;
 		
