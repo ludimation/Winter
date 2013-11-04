@@ -4,9 +4,9 @@ using System;
 public class wolf : MonoBehaviour {
 	
 	//Private member variables
-	private float distanceFromPlayer;
-	private float velocity;
-	private float temperature;
+	public float distanceFromPlayer;
+	public float velocity;
+	public float temperature;
 	
 	//Public member variables
 	public Transform playerTransform;
@@ -52,9 +52,9 @@ public class wolf : MonoBehaviour {
 	
 	int PlayerDistance(Vector3 player_position) {
 		//Use 3-D Distance formula to find distance to player
-		float x = player_position.x;
-		float y = player_position.y;
-		float z = player_position.z;
+		float x = player_position.x - gameObject.transform.position.x;
+		float y = player_position.y - gameObject.transform.position.y;
+		float z = player_position.z - gameObject.transform.position.z;
 		
 		float distance = Mathf.Sqrt((x * x) + (y * y) + (z * z));
 		return (int) distance;
