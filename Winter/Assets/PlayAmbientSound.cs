@@ -21,11 +21,11 @@ public class PlayAmbientSound : MonoBehaviour {
 		if (Random.value < playChance && distance < 35) {
 			// Play your sound.
 			int clip = (int)Random.Range(0.0f, 2.9f);
-			if (!AudioSource.isPlaying)  {
+			//if (!AudioSource.isPlaying)  {
 				Debug.Log("Sound Played");
 			Debug.Log(clip);
 				AudioSource.PlayClipAtPoint(soundClip[clip], transform.position);
-			}
+		//	}
 		}
 	}
 }
