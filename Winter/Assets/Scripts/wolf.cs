@@ -14,6 +14,7 @@ public class wolf : MonoBehaviour {
 	public float maxTemp;
 	public float warmingDistance;
 	public float warmingSpeed;
+	public float maxCoolingDistance;
 		
 	void Start () {
 		//Fill initial state values
@@ -23,20 +24,16 @@ public class wolf : MonoBehaviour {
 	
 	
 	void Update () {
+		float tempDistance;     //Player distance from wolf, but maxes out at 30
 		
 		//Find distance from player
-		distanceFromPlayer = PlayerDistance(playerTransform.position);
-		
-		//Check bounds for Velocity
-		if(velocity > maxVelocity) {
-			velocity = maxVelocity;
-		}
-		if(velocity < 0) {
-			velocity = 0;
+		tempDistance = distanceFromPlayer = PlayerDistance(playerTransform.position);
+		if(tempDistance > maxCoolingDistance) {
+			tempDistance = maxCoolingDistance;
 		}
 		
 		//Adjust temperature based on player distance
-		temperature +=  (warmingDistance - distanceFromPlayer) * Time.deltaTime * warmingSpeed;
+		temperature +=  (warmingDistance - tempDistance) * Time.deltaTime * warmingSpeed;
 		
 		//Check bounds on Temperature
 		if(temperature > maxTemp) {
