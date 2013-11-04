@@ -46,9 +46,15 @@ public class wolf : MonoBehaviour {
 			temperature = 0;
 		}
 		
+		//Manage Velocity
+		velocity = maxVelocity * temperature / maxTemp;
+		
+		gameObject.GetComponent<NavMeshAgent>().speed = velocity;
+		
 	}
 	
 	int PlayerDistance(Vector3 player_position) {
+		//Use 3-D Distance formula to find distance to player
 		float x = player_position.x;
 		float y = player_position.y;
 		float z = player_position.z;
