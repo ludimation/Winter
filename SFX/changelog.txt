@@ -1,5 +1,0 @@
-Changelog:
-
-Added Winter/Assets/PlayAmbientSound.cs
-Added Winter/Assets/SFX
-Added Winter/Assets/Scenes/audio.unity
