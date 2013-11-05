@@ -188,7 +188,8 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11400002, guid: ae93f1906fa444a448d45fa7dc698fff, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ae93f1906fa444a448d45fa7dc698fff, type: 2}
   m_RootGameObject: {fileID: 686669807}
   m_IsPrefabParent: 0
@@ -203,7 +204,6 @@ GameObject:
   - 4: {fileID: 686669811}
   - 114: {fileID: 686669810}
   - 154: {fileID: 686669809}
-  - 114: {fileID: 686669808}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -211,18 +211,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &686669808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400002, guid: ae93f1906fa444a448d45fa7dc698fff,
-    type: 2}
-  m_PrefabInternal: {fileID: 561681023}
-  m_GameObject: {fileID: 686669807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06b06ef60a427414e83973cc84234da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!154 &686669809
 TerrainCollider:
   m_ObjectHideFlags: 0
