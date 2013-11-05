@@ -14,6 +14,6 @@ public class run : MonoBehaviour {
 	}
 	
 	void Update () {
-		
+
 	}
 }

@@ -64,11 +64,11 @@ Material:
     m_Colors:
       data:
         first:
-          name: _Color
+          name: _Scale
         second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
-          name: _Scale
+          name: _Color
         second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
