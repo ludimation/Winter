@@ -4,9 +4,9 @@ using System;
 public class wolf : MonoBehaviour {
 	
 	//Private member variables
-	public float distanceFromPlayer;
-	public float velocity;
-	public float temperature;
+	private float distanceFromPlayer;
+	private float velocity;
+	private float temperature;
 	
 	enum CharacterState {
 		Sniffing = 0,
@@ -73,5 +73,9 @@ public class wolf : MonoBehaviour {
 		
 		float distance = Mathf.Sqrt((x * x) + (y * y) + (z * z));
 		return (int) distance;
+	}
+	
+	public float GetTemp () {
+		return temperature;	
 	}
 }
