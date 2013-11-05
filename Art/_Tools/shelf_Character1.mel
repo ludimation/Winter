@@ -1,0 +1,170 @@
+global proc shelf_Character1 () {
+    global string $gBuffStr;
+    global string $gBuffStr0;
+    global string $gBuffStr1;
+
+
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 34
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Quickly and easily label and save selected pose or selection commands for characters and controls as re-usable shelf buttons." 
+        -enableBackground 0
+        -align "center" 
+        -label "p2s" 
+        -labelOffset 0
+        -font "plainLabelFont" 
+        -imageOverlayLabel "p2s" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.2 
+        -image "vacantCell.png" 
+        -image1 "vacantCell.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "pose2shelf" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 34
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "export" 
+        -enableBackground 0
+        -align "center" 
+        -label "export" 
+        -labelOffset 0
+        -font "plainLabelFont" 
+        -imageOverlayLabel "export" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.2 
+        -image "aselect.xpm" 
+        -image1 "aselect.xpm" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "select -cl;\ncatch (`select -add \"geo_head\"`);\ncatch (`select -add \"pCube1\"`);\ncatch (`select -add \"geo_pants\"`);\ncatch (`select -add \"geo_shoe_L\"`);\ncatch (`select -add \"geo_shoe_R\"`);\ncatch (`select -add \"geo_hand_L\"`);\ncatch (`select -add \"geo_hand_R\"`);\n\ncatch (`select -add \"Rrevftankle\"`);\ncatch (`select -add \"Rrevftball\"`);\ncatch (`select -add \"Rrevfttoe\"`);\ncatch (`select -add \"Rrevft\"`);\ncatch (`select -add \"Lrevftankle\"`);\ncatch (`select -add \"Lrevftball\"`);\ncatch (`select -add \"Lrevfttoe\"`);\ncatch (`select -add \"Lrevft\"`);\ncatch (`select -add \"Rf1_4\"`);\ncatch (`select -add \"Rf1_3\"`);\ncatch (`select -add \"Rf1_2\"`);\ncatch (`select -add \"Rf1_1\"`);\ncatch (`select -add \"Rf2_4\"`);\ncatch (`select -add \"Rf2_3\"`);\ncatch (`select -add \"Rf2_2\"`);\ncatch (`select -add \"Rf2_1\"`);\ncatch (`select -add \"Rf3_4\"`);\ncatch (`select -add \"Rf3_3\"`);\ncatch (`select -add \"Rf3_2\"`);\ncatch (`select -add \"Rf3_1\"`);\ncatch (`select -add \"Rthumb3\"`);\ncatch (`select -add \"Rthumb2\"`);\ncatch (`select -add \"Rthumb1\"`);\ncatch (`select -add \"Rwrist2\"`);\ncatch (`select -add \"Rwrist\"`);\ncatch (`select -add \"Relbow\"`);\ncatch (`select -add \"Rshoulder\"`);\ncatch (`select -add \"Rcollar\"`);\ncatch (`select -add \"Lf1_4\"`);\ncatch (`select -add \"Lf1_3\"`);\ncatch (`select -add \"Lf1_2\"`);\ncatch (`select -add \"Lf1_1\"`);\ncatch (`select -add \"Lf2_4\"`);\ncatch (`select -add \"Lf2_3\"`);\ncatch (`select -add \"Lf2_2\"`);\ncatch (`select -add \"Lf2_1\"`);\ncatch (`select -add \"Lf3_4\"`);\ncatch (`select -add \"Lf3_3\"`);\ncatch (`select -add \"Lf3_2\"`);\ncatch (`select -add \"Lf3_1\"`);\ncatch (`select -add \"Lthumb3\"`);\ncatch (`select -add \"Lthumb2\"`);\ncatch (`select -add \"Lthumb1\"`);\ncatch (`select -add \"Lwrist2\"`);\ncatch (`select -add \"Lwrist\"`);\ncatch (`select -add \"Lelbow\"`);\ncatch (`select -add \"Lshoulder\"`);\ncatch (`select -add \"Lcollar\"`);\ncatch (`select -add \"joint8\"`);\ncatch (`select -add \"head\"`);\ncatch (`select -add \"neck\"`);\ncatch (`select -add \"spine3\"`);\ncatch (`select -add \"spine2\"`);\ncatch (`select -add \"spine1\"`);\ncatch (`select -add \"Rtoe\"`);\ncatch (`select -add \"Rball\"`);\ncatch (`select -add \"Rankle\"`);\ncatch (`select -add \"Rknee\"`);\ncatch (`select -add \"Rhip\"`);\ncatch (`select -add \"Ltoe\"`);\ncatch (`select -add \"Lball\"`);\ncatch (`select -add \"Lankle\"`);\ncatch (`select -add \"Lknee\"`);\ncatch (`select -add \"Lhip\"`);\ncatch (`select -add \"root\"`);\ncatch (`select -add \"pelvis\"`);" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 34
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "geo" 
+        -enableBackground 0
+        -align "center" 
+        -label "geo" 
+        -labelOffset 0
+        -font "plainLabelFont" 
+        -imageOverlayLabel "geo" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.2 
+        -image "aselect.xpm" 
+        -image1 "aselect.xpm" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "select -cl;\ncatch (`select -add \"geo_hand_R\"`);\ncatch (`select -add \"geo_hand_L\"`);\ncatch (`select -add \"geo_shoe_R\"`);\ncatch (`select -add \"geo_shoe_L\"`);\ncatch (`select -add \"geo_pants\"`);\ncatch (`select -add \"pCube1\"`);\ncatch (`select -add \"geo_head\"`);\n" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 34
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "bones" 
+        -enableBackground 0
+        -align "center" 
+        -label "bones" 
+        -labelOffset 0
+        -font "plainLabelFont" 
+        -imageOverlayLabel "bones" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.2 
+        -image "aselect.xpm" 
+        -image1 "aselect.xpm" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "select -cl;\ncatch (`select -add \"Rrevftankle\"`);\ncatch (`select -add \"Rrevftball\"`);\ncatch (`select -add \"Rrevfttoe\"`);\ncatch (`select -add \"Rrevft\"`);\ncatch (`select -add \"Lrevftankle\"`);\ncatch (`select -add \"Lrevftball\"`);\ncatch (`select -add \"Lrevfttoe\"`);\ncatch (`select -add \"Lrevft\"`);\ncatch (`select -add \"Rf1_4\"`);\ncatch (`select -add \"Rf1_3\"`);\ncatch (`select -add \"Rf1_2\"`);\ncatch (`select -add \"Rf1_1\"`);\ncatch (`select -add \"Rf2_4\"`);\ncatch (`select -add \"Rf2_3\"`);\ncatch (`select -add \"Rf2_2\"`);\ncatch (`select -add \"Rf2_1\"`);\ncatch (`select -add \"Rf3_4\"`);\ncatch (`select -add \"Rf3_3\"`);\ncatch (`select -add \"Rf3_2\"`);\ncatch (`select -add \"Rf3_1\"`);\ncatch (`select -add \"Rthumb3\"`);\ncatch (`select -add \"Rthumb2\"`);\ncatch (`select -add \"Rthumb1\"`);\ncatch (`select -add \"Rwrist2\"`);\ncatch (`select -add \"Rwrist\"`);\ncatch (`select -add \"Relbow\"`);\ncatch (`select -add \"Rshoulder\"`);\ncatch (`select -add \"Rcollar\"`);\ncatch (`select -add \"Lf1_4\"`);\ncatch (`select -add \"Lf1_3\"`);\ncatch (`select -add \"Lf1_2\"`);\ncatch (`select -add \"Lf1_1\"`);\ncatch (`select -add \"Lf2_4\"`);\ncatch (`select -add \"Lf2_3\"`);\ncatch (`select -add \"Lf2_2\"`);\ncatch (`select -add \"Lf2_1\"`);\ncatch (`select -add \"Lf3_4\"`);\ncatch (`select -add \"Lf3_3\"`);\ncatch (`select -add \"Lf3_2\"`);\ncatch (`select -add \"Lf3_1\"`);\ncatch (`select -add \"Lthumb3\"`);\ncatch (`select -add \"Lthumb2\"`);\ncatch (`select -add \"Lthumb1\"`);\ncatch (`select -add \"Lwrist2\"`);\ncatch (`select -add \"Lwrist\"`);\ncatch (`select -add \"Lelbow\"`);\ncatch (`select -add \"Lshoulder\"`);\ncatch (`select -add \"Lcollar\"`);\ncatch (`select -add \"joint8\"`);\ncatch (`select -add \"head\"`);\ncatch (`select -add \"neck\"`);\ncatch (`select -add \"spine3\"`);\ncatch (`select -add \"spine2\"`);\ncatch (`select -add \"spine1\"`);\ncatch (`select -add \"Rtoe\"`);\ncatch (`select -add \"Rball\"`);\ncatch (`select -add \"Rankle\"`);\ncatch (`select -add \"Rknee\"`);\ncatch (`select -add \"Rhip\"`);\ncatch (`select -add \"Ltoe\"`);\ncatch (`select -add \"Lball\"`);\ncatch (`select -add \"Lankle\"`);\ncatch (`select -add \"Lknee\"`);\ncatch (`select -add \"Lhip\"`);\ncatch (`select -add \"root\"`);\ncatch (`select -add \"pelvis\"`);\n" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 34
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "cntrls" 
+        -enableBackground 0
+        -align "center" 
+        -label "cntrls" 
+        -labelOffset 0
+        -font "plainLabelFont" 
+        -imageOverlayLabel "cntrls" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.25 
+        -image "aselect.xpm" 
+        -image1 "aselect.xpm" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "select -cl;\ncatch (`select -add \"Rfoot_ctrl\"`);\ncatch (`select -add \"Lfoot_ctrl\"`);\ncatch (`select -add \"Rwrist_ctrl\"`);\ncatch (`select -add \"Relbow_ctrl\"`);\ncatch (`select -add \"Rshoulder_ctrl\"`);\ncatch (`select -add \"LWrist_ctrl\"`);\ncatch (`select -add \"Lelbow_ctrl\"`);\ncatch (`select -add \"LShoulder_ctrl\"`);\ncatch (`select -add \"head_ctrl\"`);\ncatch (`select -add \"neck_ctrl\"`);\ncatch (`select -add \"spine3_ctrl\"`);\ncatch (`select -add \"spine2_ctrl\"`);\ncatch (`select -add \"spine1_ctrl\"`);\ncatch (`select -add \"root_ctrl\"`);\ncatch (`select -add \"pelvis_ctrl\"`);\n" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 34
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "shoulders" 
+        -enableBackground 0
+        -align "center" 
+        -label "shoulders" 
+        -labelOffset 0
+        -font "plainLabelFont" 
+        -imageOverlayLabel "shoulders" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.25 
+        -image "aselect.xpm" 
+        -image1 "aselect.xpm" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "select -cl;\ncatch (`select -add \"Rshoulder_ctrl\"`);\ncatch (`select -add \"LShoulder_ctrl\"`);\n" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+
+} 
