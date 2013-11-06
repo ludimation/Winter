@@ -10,7 +10,7 @@ public class FloatController : MonoBehaviour {
 	
 	public GameObject main_camera;
 	public GameObject camera_controller;
-	public float time_before_win = 5f;
+	public float time_before_win = 8f;
 	
 	
 	private bool floating;
@@ -29,10 +29,14 @@ public class FloatController : MonoBehaviour {
 		}
 		
 		if (lerping) {
+			if (time_before_win <= 0) {
+				Application.LoadLevel("Win");
+			}
 			Vector3 dir = main_camera.transform.position - dead_kid2.transform.position;
 			dir = dir.normalized;
 			main_camera.transform.Translate(dir * lerp_speed * Time.deltaTime);
 			main_camera.transform.LookAt(dead_kid2.transform);
+			time_before_win -= Time.deltaTime;
 		}
 	}
 	
