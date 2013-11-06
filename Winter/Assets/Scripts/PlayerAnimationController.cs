@@ -3,7 +3,8 @@ using System.Collections;
 
 public class PlayerAnimationController : MonoBehaviour {
 	
-	private Animator animator;
+	public Animator animator;
+	public wolf wolfData;
 	public float accel = 0.01f;
 	public float velocity = 0.0f;
 	public float velMAX = 2.0f;
@@ -11,34 +12,22 @@ public class PlayerAnimationController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-		animator = GetComponent<Animator>();
+		animator.SetFloat ("velocity",wolfData.GetSpeed());
+		animator.SetBool ("sniffing", false);
+		animator.SetBool ("jumping", false);
+		animator.SetBool ("gameOver", false);
+		animator.SetBool ("frozen", true);
+		animator.SetBool ("startedFloating", false);
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
-		if (Input.GetKeyDown(KeyCode.W) && velocity < velMAX)
-		{
-			velocity = velocity + accel;
-			animator.SetFloat("velocity", velocity);
-		}
-		
-		if (Input.GetKeyUp(KeyCode.W) && velocity > velMIN)
-		{
-			velocity = velocity - accel;
-			animator.SetFloat("velocity", velocity);
-		}	
-		
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			animator.SetBool("jumping", true);
-		}
-		
-		if (Input.GetKeyUp(KeyCode.Space))
-		{
-			animator.SetBool("jumping", false);
-		}
+		animator.SetFloat ("velocity",wolfData.GetSpeed());
+		animator.SetBool ("sniffing", wolfData.GetSniffing());
+		animator.SetBool ("jumping", false);
+		animator.SetBool ("gameOver", wolfData.GetGameOver());
+		animator.SetBool ("frozen", wolfData.getFrozen());
+		animator.SetBool ("startedFloating", wolfData.GetStartedFloating());
 	}
 }

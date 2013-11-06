@@ -7,6 +7,9 @@ public class wolf : MonoBehaviour {
 	private float distanceFromPlayer;
 	private float velocity;
 	private float temperature;
+	private bool sniffing;
+	private bool startedFloating;
+	private bool gameOver;
 	
 	enum CharacterState {
 		Sniffing = 0,
@@ -30,6 +33,9 @@ public class wolf : MonoBehaviour {
 		distanceFromPlayer = PlayerDistance(playerTransform.position);
 		velocity = 0;
 		charState = CharacterState.Walking;
+		sniffing = false;
+		startedFloating = false;
+		gameOver = false;
 	}
 	
 	
@@ -77,5 +83,25 @@ public class wolf : MonoBehaviour {
 	
 	public float GetTemp () {
 		return temperature;	
+	}
+	
+	public float GetSpeed () {
+		return velocity;	
+	}
+	
+	public bool GetSniffing () {
+		return sniffing;	
+	}
+	
+	public bool GetStartedFloating () {
+		return startedFloating;	
+	}
+	
+	public bool GetGameOver () {
+		return gameOver;	
+	}
+	
+	public bool getFrozen () {
+		return temperature == 0;	
 	}
 }
