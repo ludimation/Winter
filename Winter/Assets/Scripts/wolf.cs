@@ -78,6 +78,10 @@ public class wolf : MonoBehaviour {
 			
 			agent.speed = velocity;
 			
+			if(PlayerDistance(agent.destination) <= .05) {
+				sniffCooldown = 0;	
+			}
+			
 			//Manage Sniffing
 			if(sniffCooldown <= 0) {
 				if(charState != CharacterState.Sniffing) {
@@ -95,6 +99,7 @@ public class wolf : MonoBehaviour {
 					}
 				}
 			}
+			
 			
 			if(temperature > 2) {
 				sniffCooldown -= Time.deltaTime;
