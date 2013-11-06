@@ -47,14 +47,15 @@ public class wolf : MonoBehaviour {
 	
 	
 	void Update () {
+		float tempDistance;     //Player distance from wolf, but maxes out at maxCoolingDistance
+		
+		//Find distance from player
+		tempDistance = distanceFromPlayer = PlayerDistance(playerTransform.position);
+		if(tempDistance > maxCoolingDistance) {
+			tempDistance = maxCoolingDistance;
+		}
+		
 		if (movingToEnd == false) {
-			float tempDistance;     //Player distance from wolf, but maxes out at 30
-			
-			//Find distance from player
-			tempDistance = distanceFromPlayer = PlayerDistance(playerTransform.position);
-			if(tempDistance > maxCoolingDistance) {
-				tempDistance = maxCoolingDistance;
-			}
 			
 			//Adjust temperature based on player distance
 			temperature +=  (warmingDistance - tempDistance) * Time.deltaTime * warmingSpeed;
@@ -104,6 +105,9 @@ public class wolf : MonoBehaviour {
 				Vector3 newLocation = new Vector3(125f,1f,245f);
 				agent.SetDestination (newLocation);
 			}
+		}
+		else {
+			
 		}
 	}
 	
