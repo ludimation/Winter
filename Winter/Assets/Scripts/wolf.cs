@@ -77,6 +77,8 @@ public class wolf : MonoBehaviour {
 				temperature = 0;
 			}
 			
+			
+			
 			//Manage Velocity
 			if(charState == CharacterState.Walking && temperature > 2) {
 				velocity = .7f * maxVelocity * temperature / maxTemp + .3f * maxVelocity;
