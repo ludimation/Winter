@@ -5,6 +5,7 @@
 [Oo]bj/
 
 # IDE Project Files
+*.userprefs
 *.csproj
 *.unityproj
 *.sln
