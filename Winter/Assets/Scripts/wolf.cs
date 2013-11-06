@@ -31,6 +31,9 @@ public class wolf : MonoBehaviour {
 	
 		
 	void Start () {
+		
+		UnityEngine.Random.seed = DateTime.Now.Millisecond;
+		
 		//Fill initial state values
 		distanceFromPlayer = PlayerDistance(playerTransform.position);
 		velocity = 0;
