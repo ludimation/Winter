@@ -20,13 +20,13 @@ public class GUIBehavior : MonoBehaviour {
 	void Update () {
 		
 		if(Input.GetKey ("t")) {
-			// TRIGGER THE WIN SCENE
+			Application.LoadLevel("Win");
 			print ("STUFF");		
 		}
 		
 		else if (Input.GetKey ("g")) {
 			
-			// TRIGGER THE LOSE SCENE
+			Application.LoadLevel("Lose");
 			print ("LOSE");
 
 		}
