@@ -4,7 +4,6 @@ using System;
 public class wolf : MonoBehaviour {
 	
 	//Private member variables
-	private float distanceFromPlayer;
 	private float velocity;
 	private float temperature;
 	private bool gameOver;
@@ -37,7 +36,6 @@ public class wolf : MonoBehaviour {
 		UnityEngine.Random.seed = DateTime.Now.Millisecond;
 		
 		//Fill initial state values
-		distanceFromPlayer = PlayerDistance(playerTransform.position);
 		velocity = 0;
 		charState = CharacterState.Walking;
 		gameOver = false;
@@ -61,7 +59,7 @@ public class wolf : MonoBehaviour {
 		float tempDistance;     //Player distance from wolf, but maxes out at maxCoolingDistance
 		
 		//Find distance from player
-		tempDistance = distanceFromPlayer = PlayerDistance(playerTransform.position);
+		tempDistance = PlayerDistance(playerTransform.position);
 		if(tempDistance > maxCoolingDistance) {
 			tempDistance = maxCoolingDistance;
 		}
