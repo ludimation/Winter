@@ -39,7 +39,10 @@ public class wolf : MonoBehaviour {
 		agent = GetComponent<NavMeshAgent>();
 		sniffCooldown = 5f;
 		
-		Vector3 movVec = new Vector3(190,0,475);
+		Vector3 movVec = new Vector3(
+	    	UnityEngine.Random.Range(180,725),
+			0,
+			UnityEngine.Random.Range(213,840));
 		agent.SetDestination(movVec);
 		
 		movingToEnd = false;
