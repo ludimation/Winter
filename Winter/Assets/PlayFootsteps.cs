@@ -31,6 +31,7 @@ public class PlayFootsteps : MonoBehaviour {
 			audio.clip = footstep[Random.Range(0, clip_num)];		// Load audio
 			audio.Play();	// Play audio
 			Debug.Log("Footstep " + clip_num + " Played");	// Log for debug
+			AudioSource.PlayClipAtPoint(footstep[clip_num], transform.position);
 			AudioTimer = 0.1f;	// Reset Audio timer
 		}
 	}
