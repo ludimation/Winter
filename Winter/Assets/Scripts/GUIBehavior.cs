@@ -16,4 +16,20 @@ public class GUIBehavior : MonoBehaviour {
 		GUI.Box (new Rect(Screen.width - barTexture.width / 2 - 14 - boxWidth / 2 , 8f + .97f * barTexture.height * (100f - wolfData.GetTemp()) / 100f,boxWidth,boxHeight), "");
 	}
 	
+		
+	void Update () {
+		
+		if(Input.GetKey ("t")) {
+			// TRIGGER THE WIN SCENE
+			print ("STUFF");		
+		}
+		
+		else if (Input.GetKey ("g")) {
+			
+			// TRIGGER THE LOSE SCENE
+			print ("LOSE");
+
+		}
+	}
+	
 }
