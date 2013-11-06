@@ -50,8 +50,8 @@ public class wolf : MonoBehaviour {
 		
 		movingToEnd = false;
 		
-			wolfCorpse.SetActive(false);
-			girlCorpse.SetActive(false);
+		wolfCorpse.SetActive(false);
+		girlCorpse.SetActive(false);
 	}
 	
 	
@@ -125,7 +125,9 @@ public class wolf : MonoBehaviour {
 			}
 		}
 		else {
-			
+			if ( PlayerDistance(agent.destination) 		 <= 3) {
+				velocity = 0f;
+			}
 			if (PlayerDistance(playerTransform.position) <= 3
 			&&	PlayerDistance(agent.destination) 		 <= 3)
 			{
