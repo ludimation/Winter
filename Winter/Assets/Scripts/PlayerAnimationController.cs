@@ -26,8 +26,7 @@ public class PlayerAnimationController : MonoBehaviour {
 		animator.SetFloat ("velocity",wolfData.GetSpeed());
 		animator.SetBool ("sniffing", wolfData.GetSniffing());
 		animator.SetBool ("jumping", false);
-		animator.SetBool ("gameOver", wolfData.GetGameOver());
 		animator.SetBool ("frozen", wolfData.getFrozen());
-		animator.SetBool ("startedFloating", wolfData.GetStartedFloating());
+		animator.SetBool ("gameOver", wolfData.GetStartedFloating());
 	}
 }
