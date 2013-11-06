@@ -37,6 +37,9 @@ public class wolf : MonoBehaviour {
 		gameOver = false;
 		agent = GetComponent<NavMeshAgent>();
 		sniffCooldown = 5f;
+		
+		Vector3 movVec = new Vector3(250,0,415);
+		agent.SetDestination(movVec);
 	}
 	
 	
@@ -62,7 +65,7 @@ public class wolf : MonoBehaviour {
 		
 		//Manage Velocity
 		if(charState == CharacterState.Walking && temperature > 2) {
-			velocity = .8f * maxVelocity * temperature / maxTemp + .2f * maxVelocity;
+			velocity = .7f * maxVelocity * temperature / maxTemp + .3f * maxVelocity;
 		}
 		else {
 			velocity = 0;	
@@ -79,7 +82,11 @@ public class wolf : MonoBehaviour {
 				sniffCooldown -= Time.deltaTime;
 				if(sniffCooldown <= -5) {
 					charState = CharacterState.Walking;
-					sniffCooldown = UnityEngine.Random.Range(-10f,10f) + 5 + 15 * (temperature / maxTemp);
+					sniffCooldown = UnityEngine.Random.Range(-10f,10f) + 10 + 15 * (temperature / maxTemp);
+					
+					Vector3 newLocation = new Vector3(UnityEngine.Random.Range(180f,725f),5,UnityEngine.Random.Range(213f,840f));
+					agent.SetDestination(newLocation);
+					
 				}
 			}
 		}
@@ -87,6 +94,8 @@ public class wolf : MonoBehaviour {
 		if(temperature > 2) {
 			sniffCooldown -= Time.deltaTime;
 		}
+		
+		
 		
 	}
 	
