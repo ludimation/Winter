@@ -7,9 +7,10 @@ public class wolf : MonoBehaviour {
 	private float distanceFromPlayer;
 	private float velocity;
 	private float temperature;
-	private bool sniffing;
-	private bool startedFloating;
 	private bool gameOver;
+	private NavMeshAgent agent;
+	private float sniffCooldown;
+	
 	
 	enum CharacterState {
 		Sniffing = 0,
@@ -33,9 +34,9 @@ public class wolf : MonoBehaviour {
 		distanceFromPlayer = PlayerDistance(playerTransform.position);
 		velocity = 0;
 		charState = CharacterState.Walking;
-		sniffing = false;
-		startedFloating = false;
 		gameOver = false;
+		agent = GetComponent<NavMeshAgent>();
+		sniffCooldown = 5f;
 	}
 	
 	
@@ -60,14 +61,32 @@ public class wolf : MonoBehaviour {
 		}
 		
 		//Manage Velocity
-		if(charState == CharacterState.Walking) {
-			velocity = maxVelocity * temperature / maxTemp;
+		if(charState == CharacterState.Walking && temperature > 2) {
+			velocity = .8f * maxVelocity * temperature / maxTemp + .2f * maxVelocity;
 		}
 		else {
 			velocity = 0;	
 		}
 		
-		gameObject.GetComponent<NavMeshAgent>().speed = velocity;
+		agent.speed = velocity;
+		
+		//Manage Sniffing
+		if(sniffCooldown <= 0) {
+			if(charState != CharacterState.Sniffing) {
+				charState = CharacterState.Sniffing;
+			}
+			else {
+				sniffCooldown -= Time.deltaTime;
+				if(sniffCooldown <= -5) {
+					charState = CharacterState.Walking;
+					sniffCooldown = UnityEngine.Random.Range(-10f,10f) + 5 + 15 * (temperature / maxTemp);
+				}
+			}
+		}
+		
+		if(temperature > 2) {
+			sniffCooldown -= Time.deltaTime;
+		}
 		
 	}
 	
@@ -90,11 +109,11 @@ public class wolf : MonoBehaviour {
 	}
 	
 	public bool GetSniffing () {
-		return sniffing;	
+		return charState == CharacterState.Sniffing;	
 	}
 	
 	public bool GetStartedFloating () {
-		return startedFloating;	
+		return charState == CharacterState.Floating;	
 	}
 	
 	public bool GetGameOver () {
