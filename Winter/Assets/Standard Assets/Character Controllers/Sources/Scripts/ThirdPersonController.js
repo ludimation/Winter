@@ -90,6 +90,8 @@ private var lastGroundedTime = 0.0;
 
 private var isControllable = true;
 
+public var _panimator : Animator; 
+
 function Awake ()
 {
 	moveDirection = transform.TransformDirection(Vector3.forward);
@@ -292,7 +294,7 @@ var animator: Animator;
 
 function Update() {
 	
-	
+	_panimator.SetFloat("velocity",moveSpeed);
 	// animator.setFloat("velocity", moveSpeed);
 	
 	if (!isControllable)
