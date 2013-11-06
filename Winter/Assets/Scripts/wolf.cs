@@ -78,7 +78,7 @@ public class wolf : MonoBehaviour {
 			
 			agent.speed = velocity;
 			
-			if(PlayerDistance(agent.destination) <= .05) {
+			if(PlayerDistance(agent.destination) <= .05 && charState != CharacterState.Sniffing) {
 				sniffCooldown = 0;	
 			}
 			
