@@ -28,6 +28,8 @@ public class wolf : MonoBehaviour {
 	public float warmingDistance = 20f;
 	public float warmingSpeed = 0.1f;
 	public float maxCoolingDistance = 35f;
+	public GameObject girlCorpse;
+	public GameObject wolfCorpse;
 	
 		
 	void Start () {
@@ -46,6 +48,9 @@ public class wolf : MonoBehaviour {
 		agent.SetDestination(movVec);
 		
 		movingToEnd = false;
+		
+			wolfCorpse.SetActive(false);
+			girlCorpse.SetActive(false);
 	}
 	
 	
@@ -113,6 +118,9 @@ public class wolf : MonoBehaviour {
 				charState = CharacterState.Walking;
 				Vector3 newLocation = new Vector3(552f,1f,527f);
 				agent.SetDestination (newLocation);
+				wolfCorpse.SetActive(true);
+				girlCorpse.SetActive(true);
+		
 			}
 		}
 		else {
