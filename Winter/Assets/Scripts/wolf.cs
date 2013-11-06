@@ -111,7 +111,7 @@ public class wolf : MonoBehaviour {
 			if(temperature == 100f) {
 				movingToEnd = true;
 				charState = CharacterState.Walking;
-				Vector3 newLocation = new Vector3(125f,1f,245f);
+				Vector3 newLocation = new Vector3(552f,1f,527f);
 				agent.SetDestination (newLocation);
 			}
 		}

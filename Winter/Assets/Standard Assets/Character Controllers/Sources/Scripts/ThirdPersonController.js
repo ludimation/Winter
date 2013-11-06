@@ -286,7 +286,14 @@ function DidJump ()
 	_characterState = CharacterState.Jumping;
 }
 
+
+var animator: Animator;
+
+
 function Update() {
+	
+	
+	// animator.setFloat("velocity", moveSpeed);
 	
 	if (!isControllable)
 	{
@@ -437,4 +444,3 @@ function Reset ()
 {
 	gameObject.tag = "Player";
 }
-
