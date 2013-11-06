@@ -121,6 +121,9 @@ public class wolf : MonoBehaviour {
 			&&	PlayerDistance(agent.destination) 		 <= 3)
 			{
 				charState = CharacterState.Floating;
+				System.Threading.Thread.Sleep(500);
+				Application.LoadLevel("Win");
+				
 			}
 			
 		}
