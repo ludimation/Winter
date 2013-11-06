@@ -116,9 +116,16 @@ public class wolf : MonoBehaviour {
 		}
 		else {
 			
+			if (PlayerDistance(playerTransform.position) <= 3
+			&&	PlayerDistance(agent.destination) 		 <= 3)
+			{
+				charState = CharacterState.Floating;
+			}
+			
 		}
 	}
 	
+	// DISTANCE FORM WOLF TO INPUT VECTOR
 	int PlayerDistance(Vector3 player_position) {
 		//Use 3-D Distance formula to find distance to player
 		float x = player_position.x - gameObject.transform.position.x;
