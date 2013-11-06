@@ -13,7 +13,7 @@ public class GUIBehavior : MonoBehaviour {
 		GUI.Box (new Rect(Screen.width - barTexture.width - 18,10,barTexture.width + 8, barTexture.height + 8),barTexture);
 		
 		//Print the box
-		GUI.Box (new Rect(Screen.width - barTexture.width / 2 - 14 - boxWidth / 2 , 8f + .97f * barTexture.height * (100f - wolfData.GetTemp()) / 100f,boxWidth,boxHeight), "");
+		//GUI.Box (new Rect(Screen.width - barTexture.width / 2 - 14 - boxWidth / 2 , 8f + .97f * barTexture.height * (100f - wolfData.GetTemp()) / 100f,boxWidth,boxHeight), "");
 	}
 	
 		
