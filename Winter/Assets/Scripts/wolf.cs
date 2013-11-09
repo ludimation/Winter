@@ -1,16 +1,26 @@
 ﻿using UnityEngine;
 using System;
+using System.Diagnostics;
 
 public class wolf : MonoBehaviour {
 	
 	//Private member variables
 	private float velocity;
-	private float temperature;
+	private float temperature  = 0;
 	private bool gameOver;
 	private NavMeshAgent agent;
 	private float sniffCooldown;
 	private bool movingToEnd;
+	private bool started = false;
+	private NavMeshPath path;
+	private float x_prev;
+	private float y_prev;
+	private float z_prev;
 	
+	Stopwatch timer = new Stopwatch();
+	Stopwatch stopped = new Stopwatch();
+	private double tolerance = 1; // Location Tolerance
+	private float stuck = 0; // Stuck Counter
 	
 	enum CharacterState {
 		Sniffing = 0,
@@ -34,7 +44,9 @@ public class wolf : MonoBehaviour {
 	void Start () {
 		
 		UnityEngine.Random.seed = DateTime.Now.Millisecond;
-		
+		x_prev = gameObject.transform.position.x;
+		y_prev = gameObject.transform.position.y;
+		z_prev = gameObject.transform.position.z;
 		//Fill initial state values
 		velocity = 0;
 		charState = CharacterState.Walking;
@@ -43,13 +55,13 @@ public class wolf : MonoBehaviour {
 		sniffCooldown = 5f;
 		
 		Vector3 movVec = new Vector3(
-	    	UnityEngine.Random.Range(180,725),
+	    	UnityEngine.Random.Range(-100,500),
 			0,
 			UnityEngine.Random.Range(213,840));
 		agent.SetDestination(movVec);
 		
 		movingToEnd = false;
-		
+		timer.Start();
 		wolfCorpse.SetActive(false);
 		girlCorpse.SetActive(false);
 	}
@@ -57,17 +69,57 @@ public class wolf : MonoBehaviour {
 	
 	void Update () {
 		float tempDistance;     //Player distance from wolf, but maxes out at maxCoolingDistance
+		UnityEngine.Random.seed = DateTime.Now.Millisecond;
+
+		if (timer.Elapsed.Seconds >= 3)
+		{
+			x_prev = gameObject.transform.position.x;
+			y_prev = gameObject.transform.position.y;
+			z_prev = gameObject.transform.position.z;	
+			timer.Reset();
+			timer.Start();
+		}
+		
+		if (Math.Abs(x_prev - gameObject.transform.position.x) <= tolerance
+		&&  Math.Abs(z_prev - gameObject.transform.position.z) <= tolerance)
+		{
+			if(started == true)
+				if(charState != CharacterState.Sniffing)
+					if(stopped.IsRunning == false)		
+						stopped.Start();
+				
+		}
+		else
+		{
+			if (stopped.IsRunning == true)
+			{
+				stopped.Reset();
+			}
+		}
+		
+		if (stopped.IsRunning == true)
+		{
+			if (stopped.Elapsed.Seconds >= 3)
+			{
+				print("I am probably stuck!  Generating new coordinates...");
+				Vector3 newLocation = new Vector3(UnityEngine.Random.Range(180f,725f),100,UnityEngine.Random.Range(213f,840f));
+				agent.SetDestination(newLocation);
+				stopped.Reset();
+			}
+		}
 		
 		//Find distance from player
 		tempDistance = PlayerDistance(playerTransform.position);
 		if(tempDistance > maxCoolingDistance) {
 			tempDistance = maxCoolingDistance;
 		}
+	
 		
 		if (movingToEnd == false) {
 			
 			//Adjust temperature based on player distance
 			temperature +=  (warmingDistance - tempDistance) * Time.deltaTime * warmingSpeed;
+			
 			
 			//Check bounds on Temperature
 			if(temperature > maxTemp) {
@@ -76,7 +128,10 @@ public class wolf : MonoBehaviour {
 			if(temperature < 0) {
 				temperature = 0;
 			}
-			
+			if (temperature > 10)
+			{
+				started = true;	
+			}
 			
 			
 			//Manage Velocity
