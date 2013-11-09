@@ -105,6 +105,7 @@ public class wolf : MonoBehaviour {
 				Vector3 newLocation = new Vector3(UnityEngine.Random.Range(180f,725f),100,UnityEngine.Random.Range(213f,840f));
 				agent.SetDestination(newLocation);
 				stopped.Reset();
+				movingToEnd = false;
 			}
 		}
 		
