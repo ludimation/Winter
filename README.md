@@ -2,7 +2,7 @@
 Dark, mysterious, escort game with a twist.
 
 ## Summary
-Explore the dark forest as you follow the mysterious, spectral wolf.  Warm it up and discover the final secret of the forest.  
+Explore the dark forest as you follow the mysterious wolf.  Warm it up and discover the final secret of the forest.  
 
 ## Getting Started
 Download the project and open the included Unity project in the Winter/ subdirectory.  
