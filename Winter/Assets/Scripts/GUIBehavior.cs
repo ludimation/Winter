@@ -9,6 +9,9 @@ public class GUIBehavior : MonoBehaviour {
 	public int boxHeight = 30;
 	
 	void OnGUI () {
+		
+		Screen.showCursor = false;
+		
 		//Print the bar
 		GUI.Box (new Rect(Screen.width - barTexture.width - 18,10,barTexture.width + 8, barTexture.height + 8),barTexture);
 		
