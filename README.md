@@ -11,5 +11,7 @@ Alternately, build and run the executable from the Unity build menu.
 
 ## Known Bugs
 - Player model is rotated during the running animation.
-- Unity Nav Meshes are incredibly buggy -- the wolf may occasionally get stuck on slopes
-- Final animation occasionally fails to play
+- Final (floating) animation fails to play
+
+## Other Notes
+Need to update the title screens to make users aware of the shift-binding to sprint.  
