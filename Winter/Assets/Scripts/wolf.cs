@@ -42,12 +42,12 @@ public class wolf : MonoBehaviour {
         timer     = new Stopwatch();
 
         // Set Default Values
-        temperature = 1f;
+        temperature = 0f;
         velocity    = 0f;
         ready       = true;
         ending      = false;
 
-        radius = 10;
+        radius = 30;
         location.Start();
         historical = gameObject.transform.position;
 
@@ -70,15 +70,18 @@ public class wolf : MonoBehaviour {
         // If Player is Within Radius of Wolf, Increase Temperature
         proximity = getProximity(player.position);
         if (proximity <= radius) {
-            float heat = 0.5f / proximity;
-            // if (heat < 0.1) { heat = 0.1f; }
-            if (heat > 0.4) { heat = 0.4f; }
+            float distance = proximity;
+            float heat = 0.0f;
+
             if (sniffer.IsRunning == false) {
-                temperature += heat;
+
+                 if (distance >= radius) { temperature += 0.00f; }
+            else if (distance >= 20)     { temperature += 0.05f; }
+            else if (distance >= 10)     { temperature += 0.10f; }
+            else if (distance >=  5)     { temperature += 0.25f; }
+            else if (distance >=  0)     { temperature += 0.10f; }
+
             }
-        }
-        else if (animator != CharacterState.Sniffing) {
-            temperature -= 0.0025f * proximity;
         }
 
         // Set Some Default Assertions Regarding Wolf Temperature
@@ -144,9 +147,9 @@ public class wolf : MonoBehaviour {
         }
 
         // Update the Historical Location Along an Interval (AM I STUCK?!)
-        if (location.Elapsed.Seconds >= 2) {
+        if (location.Elapsed.Seconds >= 3) {
             // If Distance from Historical Coordinate to Current Coordinate
-            if (getProximity(historical) <= 5)       {
+            if (getProximity(historical) <= 1)       {
             if (animator != CharacterState.Sniffing) {
                 print("I am possibly stuck.  Resetting!");
                 destination = getDestination();
@@ -160,7 +163,9 @@ public class wolf : MonoBehaviour {
         // Set Character Controller State Variables
         navigator.speed = velocity;
         navigator.SetDestination(destination);
-        temperature -= 0.1f;
+        if (sniffer.IsRunning == false) {
+            temperature -= 0.005f * proximity;
+        }
     }
 
     // Set Velocity as a Function of Temperature and Player Proximity
