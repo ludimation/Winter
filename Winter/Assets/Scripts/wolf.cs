@@ -70,18 +70,15 @@ public class wolf : MonoBehaviour {
         // If Player is Within Radius of Wolf, Increase Temperature
         proximity = getProximity(player.position);
         if (proximity <= radius) {
-            float heat = 1 / proximity;
-            if (heat < 0.1) { heat = 0.1f; }
-            if (heat > 0.6) { heat = 0.6f; }
+            float heat = 0.5f / proximity;
+            // if (heat < 0.1) { heat = 0.1f; }
+            if (heat > 0.4) { heat = 0.4f; }
             if (sniffer.IsRunning == false) {
                 temperature += heat;
             }
         }
-        else if (sniffer.IsRunning == false) {
-            temperature -= 0.005f * proximity;
-        }
-        else if (sniffer.IsRunning == true)  {
-            temperature += 0.02f  * proximity;
+        else if (animator != CharacterState.Sniffing) {
+            temperature -= 0.0025f * proximity;
         }
 
         // Set Some Default Assertions Regarding Wolf Temperature
@@ -91,8 +88,8 @@ public class wolf : MonoBehaviour {
         }
 
         // Wolf is Stationary Under Threshold Temperature
-             if (temperature <= 15) { velocity = 0; }
-        else if (temperature >  15) {
+             if (temperature <= 5) { velocity = 0; }
+        else if (temperature >  5) {
 
             // Set a New Destination on Ready Event
             if (ready == true) {
